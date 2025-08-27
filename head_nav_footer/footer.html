@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <base href="./">
+  <title>Footer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .home-footer-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start; /* Align tops */
+      background-color: rgb(2, 77, 111);
+      padding: 20px;
+      color: white;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-lab {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    
+    .footer-contact-pair {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .footer-contact-icons,
+    .footer-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-contact-icons img {
+      width: 20px;
+      height: auto;
+    }
+
+    .footer-contact-links a {
+      color: white;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+    .footer-address-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-address-block p {
+      margin: 0;
+      padding: 2px 0;
+      font-size: 14px;
+    }
+
+    .footer-address-campus {
+      color: rgb(202, 203, 234);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    @media (min-width: 1400px) {
+      .home-footer-grid {
+        width:1400px;
+        margin: 0 auto;
+        
+
+    }
+
+    }
+
+
+
+    @media (max-width: 600px) {
+      .home-footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-contact-pair {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="home-footer-grid">
+
+    
+    <div class="footer-lab">
+      Multiscale Imaging Lab
+    </div>
+
+    
+    <div class="footer-contact-pair">
+
+      
+      <div class="footer-contact-icons">
+        <img src="Images/icons8-email-96-white.png" alt="Email Icon">
+        <img src="Images/128px-Bluesky_Logo_White.svg.png" alt="Bluesky Icon">
+      </div>
+
+      
+      <div class="footer-contact-links">
+        <a href="mailto:jingwei.xu@westlake.edu.cn">jingwei.xu@westlake.edu.cn</a>
+        <a href="https://bsky.app/profile/xujwet.bsky.social" target="_blank">xujwet.bsky.social</a>
+      </div>
+
+    </div>
+
+    
+    <div class="footer-address-block">
+      <p class="footer-address-campus">YUNQI CAMPUS</p>
+      <p>Building 3, Room 501, Westlake University</p>
+      <p>310024, Xihu District, Hangzhou, Zhejiang, China</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

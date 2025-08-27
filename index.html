@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base href="./">
+
+    <link rel="stylesheet" href="CSS/banner.css">
+    <link rel="stylesheet" href="CSS/all_file.css">
+
+    
+
+    <style>
+    
+    .head-nav {
+
+        display:flex;
+        flex-direction: column;  
+        
+    }
+   
+    
+    .display-image {
+
+        margin-top: 80px;
+
+        
+        margin-left:80px;
+        margin-right:80px;
+        
+        justify-content: center;
+
+    }
+
+
+        
+    .header-fix {
+        position:fixed;
+      
+        top: 0;
+        left: 0;
+        width: 100%;  
+        z-index: 9999;
+        
+        }
+
+        
+
+
+
+
+    @media (max-width: 600px) {
+    .display-image {
+        margin-left:0;
+        margin-right:0;
+
+    }
+    }
+
+    @media (max-width: 600px) {
+    .content-body {
+        margin-left:0;
+        margin-right:0;
+
+    }
+    }
+
+    
+
+
+    </style>
+
+
+</head>
+
+
+
+
+
+
+<body>
+
+        <header id="header" class="header-fix">
+
+        
+        <div class="head-nav">
+          
+            <div id="nav-placeholder" class="head-nav-2"></div>
+
+
+            <script>
+            function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+
+            }
+            </script>
+
+            <script>
+            function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+
+            }
+            </script>
+
+
+            <script>
+              fetch('head_nav_footer/nav.html')
+                .then(res => res.text())
+                .then(navHtml => {
+                    document.getElementById('nav-placeholder').innerHTML = navHtml;
+                    setupNavButtons(); 
+                });
+            </script>
+
+
+
+
+        </div>
+
+
+        </header>
+         <article id="article">
+
+        <div id="header-placeholder" class="display-image"></div>
+        <script>
+        fetch('head_nav_footer/banner.html')
+            .then(res => res.text())
+            .then(bannerHtml => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(bannerHtml, 'text/html');
+                const bannerBodyContent = doc.body.innerHTML;
+                document.getElementById('header-placeholder').innerHTML = bannerBodyContent;
+                setupBanner(); 
+            });
+        </script>
+
+        
+
+
+       
+        
+
+        <div id="content" class="content-body">
+
+        </div>
+
+        </article>
+
+
+
+
+        
+        <div id="footer-placeholder"></div>
+
+        <script>
+         
+        fetch('head_nav_footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+        </script>
+
+
+        <script>
+        function setupNavButtons() {
+          const buttons = document.querySelectorAll('nav button');
+          buttons.forEach(button => {
+            button.addEventListener('click', () => {
+            const page = button.getAttribute('data-page');
+            loadPageContent(page);
+            });
+          });
+        }
+
+        
+
+
+        function loadPageContent(pageUrl) {
+            fetch(pageUrl)
+            .then(response => response.text())
+            .then(data => {
+           
+                document.getElementById('content').innerHTML = data;
+
+           
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = data;
+
+                const newTitleTag = tempDiv.querySelector('title');
+                if (newTitleTag) {
+                    document.title = newTitleTag.textContent;
+                } else {
+              
+                    document.title = 'My Website';
+                }
+
+          
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        })
+            .catch(error => console.error('Error loading content:', error));
+        }
+
+
+        window.addEventListener('DOMContentLoaded', () => {
+        
+            loadPageContent('Pages/home.html');
+        });
+
+
+    </script>
+
+
+    <script>
+    function setupBanner() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.banner-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const totalSlides = slides.length;
+
+    function updateSlide() {
+        slides.forEach((slide, index) => {
+            slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlide();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    }
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentSlide = index;
+            updateSlide();
+        });
+    });
+
+    document.querySelector('.arrow-left').addEventListener('click', prevSlide);
+    document.querySelector('.arrow-right').addEventListener('click', nextSlide);
+
+    let autoPlayInterval = setInterval(nextSlide, 5000);
+
+    const bannerContainer = document.querySelector('.banner-container');
+    bannerContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+    });
+
+    bannerContainer.addEventListener('mouseleave', () => {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+    });
+
+    updateSlide();
+    }
+
+    
+    </script>
+
+
+
+
+        
+
+    </body>
+
+
+</html>

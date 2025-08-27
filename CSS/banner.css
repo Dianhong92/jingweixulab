@@ -1,0 +1,200 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    body {
+
+        min-height: 100vh;
+        
+        padding: 20px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+
+        
+    }
+    
+    
+    .banner-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;      
+        aspect-ratio: 4 / 1;     
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* or use 'cover' if you want to fill with cropping */
+    display: block;
+    }
+
+
+    
+    .banner-slide {
+    background-color: rgb(125, 161, 178);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    transition: transform 0.5s ease-in-out;
+
+    background-size: cover; /* optional improvement */
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+    
+    
+
+
+
+    
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 35px;
+       
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+    
+    .arrow:hover {
+        
+        background-color:rgb(54, 122, 153);
+;
+    }
+    
+    .arrow-left {
+        left: 70px;
+    }
+    
+    .arrow-right {
+        right: 70px;
+    }
+    
+    .arrow img {
+        width:35px;
+        
+     
+    }
+    
+    .indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    
+    .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(209, 207, 207);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+    }
+    
+    .indicator.active {
+        background: white;
+    
+        transform: scale(1.2);
+    }
+    
+    
+    
+    pre {
+        white-space: pre-wrap;
+        line-height: 1.5;
+    }
+
+
+    .square {
+        width:100%;
+        height:50px;
+        
+        background-color: rgb(54, 122, 153);
+
+    }
+
+
+
+    .banner-lab-title {
+        font-size:20px;
+        font-weight: bold;
+        padding-top:5px;
+        
+        color:white;
+        text-align: center;
+
+
+    }
+
+    .banner-lab-chinese-title{
+        font-size:12px;
+        font-weight: bold;
+        color:white;
+        text-align: center;
+
+
+
+    }
+        
+    @media (max-width: 768px) {
+    .banner-container {
+        width:100%;
+    }
+
+    .banner-slide {
+        font-size: 2rem;
+    }
+    }
+
+    @media (min-width: 1400px) {
+        .banner-container{
+            width:1200px;
+            margin: 0 auto;
+            
+
+
+        }
+
+    }
+
+    @media (min-width: 1400px) {
+    .square {
+        width:1200px;
+        margin: 0 auto;
+        
+
+
+    }
+
+    }
+
+
