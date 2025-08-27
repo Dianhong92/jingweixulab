@@ -115,11 +115,6 @@
 
 
     }
-
-    .sidebarbar.show {
-
-        display:flex;
-    }
     .sidebar li {
         width:100%;
 
@@ -167,22 +162,22 @@
         </li>
 
         <li>
-            <button data-page="Pages/home.html" onclick=hideSidebar()>Home</button>
+            <button data-page="Pages/home.html">Home</button>
         </li>
         <li>
-            <button data-page="Pages/research.html" onclick=hideSidebar()>Research</button>
+            <button data-page="Pages/research.html">Research</button>
         </li>
         <li>
-            <button data-page="Pages/people.html" onclick=hideSidebar()>People</button>
+            <button data-page="Pages/people.html">People</button>
         </li>
         <li>
-            <button data-page="Pages/publication.html" onclick=hideSidebar()>Publications</button>
+            <button data-page="Pages/publication.html">Publications</button>
         </li>
         <li>
-            <button data-page="Pages/recruitment.html" onclick=hideSidebar()>Recruitment</button>
+            <button data-page="Pages/recruitment.html">Recruitment</button>
         </li>
         <li>
-            <button data-page="Pages/contact.html" onclick=hideSidebar()>Contact</button>
+            <button data-page="Pages/contact.html">Contact</button>
         </li>
 
 
@@ -192,11 +187,12 @@
 
     <ul >
         <li>
-        <button onclick="hideSidebar()" style="background: none; border: none;">
-            <img src="Images/close.svg" alt="Close" style="cursor: pointer;">
-        </button>
-        </li>
+            <a href="https://www.westlake.edu.cn" target="_blank">
+                    <img src="Images/westlake_icon.png" alt="Click" class="westlake-icon">
+            </a>
 
+      
+        </li>
         <li>
             <button data-page="Pages/home.html" class="hidenavbar-smallsize">Home</button>
         </li>
@@ -215,28 +211,31 @@
         <li>
             <button data-page="Pages/contact.html" class="hidenavbar-smallsize">Contact</button>
         </li>
-        <li>
-        <button onclick="showSidebar(event)" style="background: none; border: none;">
-            <img src="Images/hamburger.svg" alt="Menu" style="cursor: pointer;">
-        </button>
+        <li onclick=showSidebar()>
+            <a href="#">
+                <img src="Images/hamburger.svg">
+            </a>
         </li>
-
 
     </ul>
     
   </nav>
 
   <script>
-    function showSidebar(event) {
-        event.preventDefault();
-        document.querySelector('.sidebar').classList.add('show');
-    }
+    function showSidebar() {
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'flex'
 
+    }
+  </script>
+
+    <script>
     function hideSidebar() {
-        document.querySelector('.sidebar').classList.remove('show');
-    }
-</script>
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'none'
 
+    }
+  </script>
 
 
 </body>
