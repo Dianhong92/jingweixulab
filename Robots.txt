@@ -1,4 +1,0 @@
-User-agent:*
-Allow:/
-Sitemap:http://jingweixulab.com/
-sitemap.xml
