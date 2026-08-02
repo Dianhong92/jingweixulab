@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base href="./">
+    <title>Navigation</title>
+
+    <style>
+    * {
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+
+    .nav-wrapper {
+        position: relative;
+        width: 100%;
+        /* Leave space for the fixed navigation bar */
+        padding-top: 0px; 
+    }
+
+    /* Header Banner Container */
+    .bg-header {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+    
+    .bg-header img {
+        width: 100%;
+        height: auto; 
+        display: block;
+    }
+
+    /* Text Overlay on Header Image */
+    .header-overlay-text {
+        position: absolute;
+        bottom: 20px;
+        left: 25px;
+        color: rgba(61, 60, 60, 0.85);
+        font-size: 16px;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6); /* Legibility shadow against light image backgrounds */
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* Fixed Top Navigation Bar */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        width: 100%;
+    }
+
+    /* Horizontal Navbar (Right-Aligned) */
+    nav ul:not(.sidebar) {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 20px;
+        background-color: rgba(40, 40, 40, 0.85);
+        backdrop-filter: blur(8px);
+    }
+
+    nav li {
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    nav a {
+        height: 100%;
+        padding: 0 10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    nav button {
+        padding: 0 20px;
+        height: 100%;
+        background: transparent; 
+        border: none;
+        transition: background-color 0.2s ease, color 0.2s ease; 
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    nav button:hover {
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.2); 
+        border-radius: 4px;
+    }
+
+    nav li:first-child {
+        margin-right: auto;
+    }
+
+    .westlake-icon {
+        width: 100px;
+    }
+
+    /* Sidebar Drawer */
+    .sidebar {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 320px;
+        width: 130px;
+        z-index: 10001;
+        background-color: rgba(40, 40, 40, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 13px;
+        padding-top: 10px;
+    }
+
+    .sidebar li {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .sidebar li.close-btn {
+        padding-left: 15px;
+        cursor: pointer;
+    }
+
+    .sidebar li.close-btn a {
+        padding: 0;
+    }
+
+    .sidebar button {
+        width: 100%;
+        padding: 0 15px;
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        color: #ffffff;
+        font-size: 13px;
+    }
+
+    @media(max-width: 800px) {
+        .hidenavbar-smallsize {
+            display: none;
+        }
+
+        .header-overlay-text {
+            font-size: 18px;
+            bottom: 12px;
+            left: 15px;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .navbar {
+            width: 1400px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="nav-wrapper">
+        <nav class="navbar">
+            <ul class="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a><img src="Images/close.svg" alt="Close"></a>
+                </li>
+                <li><button data-page="Pages/home.html" onclick="hideSidebar()">Home</button></li>
+                <li><button data-page="Pages/research.html" onclick="hideSidebar()">Research</button></li>
+                <li><button data-page="Pages/people.html" onclick="hideSidebar()">People</button></li>
+                <li><button data-page="Pages/publication.html" onclick="hideSidebar()">Publications</button></li>
+                <li><button data-page="Pages/recruitment.html" onclick="hideSidebar()">Recruitment</button></li>
+                <li><button data-page="Pages/contact.html" onclick="hideSidebar()">Contact</button></li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="https://www.westlake.edu.cn" target="_blank">
+                        <img src="Images/westlake_icon.png" alt="Westlake Icon" class="westlake-icon">
+                    </a>
+                </li>
+                <li><button data-page="Pages/home.html" class="hidenavbar-smallsize">Home</button></li>
+                <li><button data-page="Pages/research.html" class="hidenavbar-smallsize">Research</button></li>
+                <li><button data-page="Pages/people.html" class="hidenavbar-smallsize">People</button></li>
+                <li><button data-page="Pages/publication.html" class="hidenavbar-smallsize">Publications</button></li>
+                <li><button data-page="Pages/recruitment.html" class="hidenavbar-smallsize">Recruitment</button></li>
+                <li><button data-page="Pages/contact.html" class="hidenavbar-smallsize">Contact</button></li>
+                <li onclick="showSidebar()">
+                    <a><img src="Images/hamburger.svg" alt="Menu"></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="bg-header" id="bgHeader">
+            <img src="Images/xlab.png" alt="Header Background">
+            <div class="header-overlay-text">@许靖蔚实验室</div>
+        </div>
+    </div>
+</body>
+</html>

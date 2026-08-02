@@ -1,0 +1,125 @@
+body {
+    min-height:100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+.recruitment-body { 
+    background-color: rgb(234, 234, 234, 0.8);
+    
+    margin-left:  80px;;
+    margin-right:80px;
+    padding-bottom: 50px;
+    box-sizing:border-box;
+    width:100%;
+   
+    display:grids;
+ 
+
+
+    width:auto;
+    max-width: none;
+
+}
+
+.recruitment-body p{
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.recruitment-title1{
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+}
+
+.recruitment-title2{
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+
+.recruitment-content1{
+    font-size: 16px;
+    padding-bottom: 10px;
+
+}
+
+.recruitment-content2{
+    font-size: 16px;
+    padding-bottom: 10px;
+
+}
+
+.recruitment-content3{
+    color:rgb(1, 45, 66);
+    font-size: 16px;
+    padding-bottom: 10px;
+
+}
+
+.recruitment-email-address {
+
+    color:rgb(2, 77, 111);
+    cursor:pointer;
+    text-decoration: underline;
+    
+}
+
+.recruitment-westlake-jingwei-address {
+    overflow-wrap: break-word;
+    color:rgb(2, 77, 111);
+    cursor:pointer;
+    text-decoration: underline;
+    word-break: break-all;
+    overflow-wrap: break-word;
+
+}
+
+.recruitment-website-address {
+    color:rgb(2, 77, 111);
+    cursor:pointer;
+    text-decoration: underline;
+
+
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 1400px) {
+    .recruitment-body {
+        width:1200px;
+        margin:0 auto;
+
+
+    }
+}
+
+@media (max-width: 600px) {
+    .recruitment-body {
+    margin-left:0;
+    margin-right:0;
+
+}
+
+}

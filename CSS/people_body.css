@@ -1,0 +1,197 @@
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.people-body {
+    background-color: rgba(234, 234, 234, 0.8);
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: auto;
+    max-width: none;
+    justify-content: flex-start;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.people-lab-members {
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    align-self: flex-start;
+    padding-left: 20px;
+    padding-top: 30px;
+}
+
+.jingweixu-title {
+    font-size: 25px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    padding-top: 40px;
+}
+
+.jingweixu-position {
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.jingweixu-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 30px auto 100px auto;
+    padding: 0 20px 30px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jingweixu-image {
+    display: block;
+    margin-left: 0;
+    max-width: 200px;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    justify-items: center;
+}
+
+.jingweixu-contact {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.jingweixu-phone {
+    width: 24px;
+}
+
+.jingweixu-phone-number {
+    display: flex;
+    color: rgb(2, 77, 111);
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0px;
+}
+
+.jingweixu-email {
+    width: 20px;
+}
+
+.jingweixu-email-address {
+    color: rgb(2, 77, 111);
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0px;
+    word-break: break-all; /* Prevents long emails from stretching the card */
+}
+
+.jingweixu-bluesky {
+    width: 20px;
+}
+
+.jingweixu-bluesky-link {
+    color: rgb(2, 77, 111);
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0px;
+}
+
+.jingwei-position-grid .text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.jingweixu-position-2 {
+    padding-top: 120px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.jingweixu-time {
+    font-size: 18px;
+    color: rgb(2, 77, 111);
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* =========================================================
+   UPDATED: Grid layout so all student cards take equal space
+   ========================================================= */
+.people-student-profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /* Uniform width */
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto 100px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.people-student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* Stretches card height to match neighbors in the row */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Fixes image sizing so photos don't push card dimensions unevenly */
+.people-student .jingweixu-image {
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.student-name {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+@media (min-width: 1400px) {
+    .people-body {
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .people-body {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .jingweixu-position-2 {
+        padding-top: 0px;
+    }
+
+    .people-student-profile {
+        grid-template-columns: 1fr; /* Stacks cards cleanly on mobile */
+    }
+}
+
+
